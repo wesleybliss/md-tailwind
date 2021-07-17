@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 
 export const useClasses = ({
-    wrapperClassName,
+    className,
     modalClassName,
     modalInnerClassName,
     overlayClassName,
@@ -27,7 +27,7 @@ export const useClasses = ({
             'opacity-100 pointer-events-auto': active,
             'opacity-0 pointer-events-none': !active,
         },
-        wrapperClassName,
+        className,
     )
     
     classes.modal = classnames(

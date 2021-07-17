@@ -12,7 +12,7 @@ const sizeMap = {
 const Modal = ({
     children,
     makeClasses,
-    wrapperClassName,
+    className,
     modalClassName,
     modalInnerClassName,
     overlayClassName,
@@ -23,7 +23,7 @@ const Modal = ({
     
     const modalSize = sizeMap[size] || 'max-w-3xl'
     const classes = makeClasses(useClasses({
-        wrapperClassName,
+        className,
         modalClassName,
         modalInnerClassName,
         overlayClassName,
@@ -56,7 +56,7 @@ const Modal = ({
 
 Modal.defaultProps = {
     makeClasses: classes => classes,
-    wrapperClassName: null,
+    className: null,
     modalClassName: null,
     modalInnerClassName: null,
     overlayClassName: null,
@@ -68,7 +68,7 @@ Modal.defaultProps = {
 Modal.propTypes = {
     children: PropTypes.node.isRequired,
     makeClasses: PropTypes.func.isRequired,
-    wrapperClassName: PropTypes.string,
+    className: PropTypes.string,
     modalClassName: PropTypes.string,
     modalInnerClassName: PropTypes.string,
     overlayClassName: PropTypes.string,
