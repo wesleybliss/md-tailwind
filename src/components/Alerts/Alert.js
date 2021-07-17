@@ -1,5 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 const colors = {
     blueGray: 'bg-blue-gray-500',
@@ -21,26 +22,51 @@ const colors = {
     purple: 'bg-purple-500',
     pink: 'bg-pink-500',
     red: 'bg-red-500',
-};
+}
 
-export default function Alert({ children, color, ...rest }) {
+const Alert = ({
+    children,
+    className,
+    color,
+    ...rest
+}) => {
+    
+    const classes = classnames(
+        'flex',
+        'items-center',
+        'gap-3',
+        'text-white',
+        'p-4',
+        'pr-12',
+        'border-0',
+        'rounded-lg',
+        'relative',
+        'mb-4',
+        'transition-all',
+        'duration-300',
+        colors[color],
+        className,
+    )
+    
     return (
-        <>
-            <div
-                {...rest}
-                className={`flex items-center gap-3 text-white p-4 pr-12 border-0 rounded-lg relative mb-4 ${colors[color]} transition-all duration-300`}
-            >
-                {children}
-            </div>
-        </>
-    );
+        
+        <div className={classes} {...rest}>
+            {children}
+        </div>
+        
+    )
+    
 }
 
 Alert.defaultProps = {
+    className: null,
     color: 'lightBlue',
-};
+}
 
 Alert.propTypes = {
-    color: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
-};
+    className: PropTypes.string,
+    color: PropTypes.string.isRequired,
+}
+
+export default Alert

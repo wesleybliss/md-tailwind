@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const colors = {
     white: 'text-gray-200',
@@ -22,24 +22,36 @@ const colors = {
     purple: 'text-purple-700',
     pink: 'text-pink-700',
     red: 'text-red-700',
-};
+}
 
-export default function Small({ children, color, ...rest }) {
+const Small = ({
+    children,
+    className,
+    color,
+    ...rest
+}) => {
+    
     return (
+        
         <small
             {...rest}
-            className={`${colors[color]} font-normal leading-normal mt-0 mb-4`}
-        >
+            className={`${colors[color]} font-normal leading-normal mt-0 mb-4`}>
             {children}
         </small>
-    );
+        
+    )
+    
 }
 
 Small.defaultProps = {
+    className: null,
     color: 'blueGray',
-};
+}
 
 Small.propTypes = {
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
     color: PropTypes.string.isRequired,
-};
+}
+
+export default Small

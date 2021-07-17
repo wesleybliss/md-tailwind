@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Ripple from 'material-ripple-effects';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Ripple from 'material-ripple-effects'
 
 const Colors = {
     blueGray: 'hover:bg-blue-gray-500',
@@ -22,7 +22,7 @@ const Colors = {
     purple: 'hover:bg-purple-500',
     pink: 'hover:bg-pink-500',
     red: 'hover:bg-red-500',
-};
+}
 
 const ShadowColors = {
     blueGray: 'hover:shadow-md-blue-gray',
@@ -44,31 +44,44 @@ const ShadowColors = {
     purple: 'hover:shadow-md-purple',
     pink: 'hover:shadow-md-pink',
     red: 'hover:shadow-md-red',
-};
+}
 
-export default function DropdownLink({ children, color, ripple, ...rest }) {
-    const rippleEffect = new Ripple();
-
+const DropdownLink = ({
+    children,
+    className,
+    color,
+    ripple,
+    ...rest
+}) => {
+    
+    const rippleEffect = new Ripple()
+    
     return (
+        
         <a
             {...rest}
             className={`block w-full text-sm py-3 px-4 font-normal cursor-pointer whitespace-no-wrap rounded-md text-gray-900 hover:text-white ${Colors[color]} ${ShadowColors[color]} transition-all duration-300`}
             onMouseUp={(e) => {
                 ripple === 'dark' && rippleEffect.create(e, 'dark');
                 ripple === 'light' && rippleEffect.create(e, 'light');
-            }}
-        >
+            }}>
             {children}
         </a>
-    );
+        
+    )
+    
 }
 
 DropdownLink.defaultProps = {
+    className: null,
     color: 'lightBlue',
-};
+}
 
 DropdownLink.propTypes = {
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
     color: PropTypes.string.isRequired,
     ripple: PropTypes.string,
-};
+}
+
+export default DropdownLink

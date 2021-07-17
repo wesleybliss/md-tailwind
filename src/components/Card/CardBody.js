@@ -1,10 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-export default function CardBody({ children, className }) {
-    return <div className={`p-4 ${className}`}>{children}</div>;
+const CardBody = ({
+    children,
+    className,
+}) => {
+    
+    return (
+        
+        <div className={`p-4 ${className}`}>
+            {children}
+        </div>
+        
+    )
+    
+}
+
+CardBody.defaultProps = {
+    className: null,
 }
 
 CardBody.propTypes = {
     children: PropTypes.node.isRequired,
-};
+    className: PropTypes.string,
+}
+
+export default CardBody

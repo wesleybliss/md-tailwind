@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const wrapperBgColors = {
     blueGray: 'bg-blue-gray-200',
@@ -21,7 +21,7 @@ const wrapperBgColors = {
     purple: 'bg-purple-200',
     pink: 'bg-pink-200',
     red: 'bg-red-200',
-};
+}
 
 const bgColors = {
     blueGray: 'bg-blue-gray-500',
@@ -43,34 +43,45 @@ const bgColors = {
     purple: 'bg-purple-500',
     pink: 'bg-pink-500',
     red: 'bg-red-500',
-};
+}
 
-export default function Progress({ color, value, percentage }) {
+const Progress = ({
+    className,
+    color,
+    value,
+    percentage
+}) => {
+    
     return (
-        <>
+        
+        <div
+            className={`overflow-hidden ${
+                percentage ? 'h-6' : 'h-2'
+            } flex rounded ${wrapperBgColors[color]}`}>
+            
             <div
-                className={`overflow-hidden ${
-                    percentage ? 'h-6' : 'h-2'
-                } flex rounded ${wrapperBgColors[color]}`}
-            >
-                <div
-                    style={{ width: `${value}%` }}
-                    className={`flex justify-center items-center rounded text-xs font-medium ${bgColors[color]} text-white`}
-                >
-                    {percentage ? `${value}% Completed` : ''}
-                </div>
+                style={{ width: `${value}%` }}
+                className={`flex justify-center items-center rounded text-xs font-medium ${bgColors[color]} text-white`}>
+                {percentage ? `${value}% Completed` : ''}
             </div>
-        </>
-    );
+            
+        </div>
+        
+    )
+    
 }
 
 Progress.defaultProps = {
+    className: null,
     color: 'lightBlue',
     percentage: false,
-};
+}
 
 Progress.propTypes = {
+    className: PropTypes.string,
     color: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     percentage: PropTypes.bool.isRequired,
-};
+}
+
+export default Progress

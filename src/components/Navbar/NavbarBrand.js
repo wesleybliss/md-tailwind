@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const colors = {
     white: 'text-white',
@@ -22,23 +22,34 @@ const colors = {
     purple: 'text-purple-500',
     pink: 'text-pink-500',
     red: 'text-red-500',
-};
+}
 
-export default function NavbarBrand({ children, color }) {
+const NavbarBrand = ({
+    children,
+    className,
+    color
+}) => {
+    
     return (
+        
         <span
-            className={`text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase ${colors[color]}`}
-        >
+            className={`text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase ${colors[color]} ${className}`}>
             {children}
         </span>
-    );
+        
+    )
+    
 }
 
 NavbarBrand.defaultProps = {
+    className: null,
     color: 'white',
-};
+}
 
 NavbarBrand.propTypes = {
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
     color: PropTypes.string,
-};
+}
+
+export default NavbarBrand

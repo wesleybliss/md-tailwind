@@ -1,16 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-export default function Pagination({ children }) {
-  return (
-    <div className="py-2">
-      <div className="block">
-        <ul className="flex pl-0 rounded list-none">{children}</ul>
-      </div>
-    </div>
-  );
+const Pagination = ({
+    children,
+    className,
+}) => {
+    
+    return (
+        
+        <div className={`py-2 ${className}`}>
+            <div className="block">
+                <ul className="flex pl-0 rounded list-none">{children}</ul>
+            </div>
+        </div>
+        
+    )
+    
 }
 
 Pagination.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
+}
+
+export default Pagination

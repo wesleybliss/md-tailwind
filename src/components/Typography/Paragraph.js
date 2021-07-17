@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const colors = {
     white: 'text-gray-200',
@@ -22,24 +22,36 @@ const colors = {
     purple: 'text-purple-700',
     pink: 'text-pink-700',
     red: 'text-red-700',
-};
+}
 
-export default function Paragraph({ children, color, ...rest }) {
+const Paragraph = ({
+    children,
+    className,
+    color,
+    ...rest
+}) => {
+    
     return (
+        
         <p
             {...rest}
-            className={`${colors[color]} text-base font-light leading-relaxed mt-0 mb-4`}
-        >
+            className={`${colors[color]} text-base font-light leading-relaxed mt-0 mb-4 ${className}`}>
             {children}
         </p>
-    );
+        
+    )
+    
 }
 
 Paragraph.defaultProps = {
+    className: null,
     color: 'blueGray',
-};
+}
 
 Paragraph.propTypes = {
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
     color: PropTypes.string.isRequired,
-};
+}
+
+export default Paragraph

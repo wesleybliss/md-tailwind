@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const colors = {
     blueGray: 'mt-checkbox-blue-gray-500',
@@ -21,34 +21,50 @@ const colors = {
     purple: 'mt-checkbox-purple-500',
     pink: 'mt-checkbox-pink-500',
     red: 'mt-checkbox-red-500',
-};
+}
 
-export default function Checkbox({ color, text, id, ...rest }) {
+const Checkbox = ({
+    className,
+    color,
+    text,
+    id,
+    ...rest
+}) => {
+    
     return (
+        
         <div className="flex items-center">
+            
             <input
                 {...rest}
                 id={id}
                 type="checkbox"
                 className={`mt-checkbox ${colors[color]} hidden overflow-hidden`}
             />
+            
             <label
                 htmlFor={id}
-                className="flex items-center cursor-pointer text-gray-400 select-none transition-all duration-300"
-            >
+                className="flex items-center cursor-pointer text-gray-400 select-none transition-all duration-300">
                 <span className="relative w-5 h-5 inline-block mr-2 rounded border border-gray-500 transition-all duration-300"></span>
                 {text}
             </label>
+            
         </div>
-    );
+        
+    )
+    
 }
 
 Checkbox.defaultProps = {
+    className: null,
     color: 'lightBlue',
 };
 
 Checkbox.propTypes = {
+    className: PropTypes.string,
     color: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
 };
+
+export default Checkbox

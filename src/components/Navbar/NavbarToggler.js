@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Ripple from 'material-ripple-effects';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Ripple from 'material-ripple-effects'
 
 const colors = {
     white: 'bg-white',
@@ -23,7 +23,7 @@ const colors = {
     purple: 'bg-purple-500',
     pink: 'bg-pink-500',
     red: 'bg-red-500',
-};
+}
 
 const bgHoverColors = {
     white: 'hover:bg-white hover:bg-opacity-20',
@@ -46,21 +46,28 @@ const bgHoverColors = {
     purple: 'hover:bg-purple-50',
     pink: 'hover:bg-pink-50',
     red: 'hover:bg-red-50',
-};
+}
 
-export default function NavbarToggler({ color, ripple, ...rest }) {
-    const rippleEffect = new Ripple();
-
+const NavbarToggler = ({
+    className,
+    color,
+    ripple,
+    ...rest
+}) => {
+    
+    const rippleEffect = new Ripple()
+    
     return (
+        
         <button
             {...rest}
-            className={`cursor-pointer text-xl leading-none py-1 px-1.5 rounded-full border border-solid border-transparent bg-transparent block lg:hidden outline-none focus:outline-none ${bgHoverColors[color]} transition-all duration-300`}
+            className={`cursor-pointer text-xl leading-none py-1 px-1.5 rounded-full border border-solid border-transparent bg-transparent block lg:hidden outline-none focus:outline-none ${bgHoverColors[color]} transition-all duration-300 ${className}`}
             type="button"
             onMouseUp={(e) => {
-                ripple === 'dark' && rippleEffect.create(e, 'dark');
-                ripple === 'light' && rippleEffect.create(e, 'light');
-            }}
-        >
+                ripple === 'dark' && rippleEffect.create(e, 'dark')
+                ripple === 'light' && rippleEffect.create(e, 'light')
+            }}>
+            
             <span
                 className={`block relative w-6 h-px rounded-sm ${colors[color]}`}
             ></span>
@@ -70,15 +77,22 @@ export default function NavbarToggler({ color, ripple, ...rest }) {
             <span
                 className={`block relative w-6 h-px rounded-sm ${colors[color]} mt-1`}
             ></span>
+            
         </button>
-    );
+        
+    )
+    
 }
 
 NavbarToggler.defaultProps = {
+    className: null,
     color: 'white',
-};
+}
 
 NavbarToggler.propTypes = {
+    className: PropTypes.string,
     color: PropTypes.string.isRequired,
     ripple: PropTypes.string,
-};
+}
+
+export default NavbarToggler

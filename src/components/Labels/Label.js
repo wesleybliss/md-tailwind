@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const bgColors = {
     blueGray: 'bg-blue-gray-100',
@@ -21,7 +21,7 @@ const bgColors = {
     purple: 'bg-purple-100',
     pink: 'bg-pink-100',
     red: 'bg-red-100',
-};
+}
 
 const textColors = {
     blueGray: 'text-blue-gray-700',
@@ -43,25 +43,37 @@ const textColors = {
     purple: 'text-purple-700',
     pink: 'text-pink-700',
     red: 'text-red-700',
-};
+}
 
-export default function Label({ children, color, className }) {
+const Label = ({
+    children,
+    className,
+    color,
+}) => {
+    
     return (
-        <>
-            <div
-                className={`max-w-max flex items-center justify-between py-1 px-3 rounded-full ${bgColors[color]} last:mr-0 mr-1 transition-all duration-300 ${className}`}
-            >
-                <span
-                    className={`text-xs font-semibold uppercase ${textColors[color]}`}
-                >
-                    {children}
-                </span>
-            </div>
-        </>
-    );
+        
+        <div className={`max-w-max flex items-center justify-between py-1 px-3 rounded-full ${bgColors[color]} last:mr-0 mr-1 transition-all duration-300 ${className}`}>
+            
+            <span
+                className={`text-xs font-semibold uppercase ${textColors[color]}`}>
+                {children}
+            </span>
+            
+        </div>
+        
+    )
+    
+}
+
+Label.defaultProps = {
+    className: null,
 }
 
 Label.propTypes = {
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
     color: PropTypes.string.isRequired,
 };
+
+export default Label

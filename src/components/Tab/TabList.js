@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const colors = {
     blueGray: 'bg-blue-gray-500',
@@ -21,7 +21,7 @@ const colors = {
     purple: 'bg-purple-500',
     pink: 'bg-pink-500',
     red: 'bg-red-500',
-};
+}
 
 const shadowColors = {
     blueGray: 'shadow-lg-blue-gray',
@@ -43,24 +43,37 @@ const shadowColors = {
     purple: 'shadow-lg-purple',
     pink: 'shadow-lg-pink',
     red: 'shadow-lg-red',
-};
+}
 
-export default function TabList({ children, color, className }) {
+const TabList = ({
+    children,
+    className,
+    color,
+}) => {
+    
     return (
+        
         <ul
             className={`${colors[color]} w-full rounded-lg p-4 mx-5 flex justify-start -mt-12 mb-6 list-none ${shadowColors[color]} z-10 ${className}`}
-            role="tablist"
-        >
+            role="tablist">
+            
             {children}
+            
         </ul>
-    );
+        
+    )
+    
 }
 
 TabList.defaultProps = {
+    className: null,
     color: 'lightBlue',
-};
+}
 
 TabList.propTypes = {
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
     color: PropTypes.string.isRequired,
-};
+}
+
+export default TabList

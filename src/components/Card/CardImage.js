@@ -1,16 +1,35 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-export default function CardImage({ src, className, ...rest }) {
+const CardImage = ({
+    className,
+    src,
+    alt,
+    ...rest
+}) => {
+    
     return (
+        
         <img
-            {...rest}
             className={`w-full rounded-lg -mt-9 shadow-lg ${className}`}
+            {...rest}
             src={src}
+            alt={alt}
         />
-    );
+        
+    )
+    
+}
+
+CardImage.defaultProps = {
+    className: null,
+    alt: '',
 }
 
 CardImage.propTypes = {
+    className: PropTypes.string,
     src: PropTypes.string.isRequired,
-};
+    alt: PropTypes.string,
+}
+
+export default CardImage

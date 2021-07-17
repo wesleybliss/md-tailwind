@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Ripple from 'material-ripple-effects';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Ripple from 'material-ripple-effects'
 
 const colors = {
     blueGray: 'bg-blue-gray-500',
@@ -22,20 +22,23 @@ const colors = {
     purple: 'bg-purple-500',
     pink: 'bg-pink-500',
     red: 'bg-red-500',
-};
+}
 
-export default function PaginationItem({
+const PaginationItem = ({
     children,
+    className,
     color,
     button,
     ripple,
-    className,
     ...rest
-}) {
-    const rippleEffect = new Ripple();
-
+}) => {
+    
+    const rippleEffect = new Ripple()
+    
     return (
+        
         <li className="grid place-items-center">
+            
             <a
                 {...rest}
                 className={`text-sm leading-none flex ${
@@ -50,21 +53,29 @@ export default function PaginationItem({
                 onMouseUp={(e) => {
                     ripple === 'dark' && rippleEffect.create(e, 'dark');
                     ripple === 'light' && rippleEffect.create(e, 'light');
-                }}
-            >
+                }}>
+                
                 {children}
+                
             </a>
+            
         </li>
-    );
+        
+    )
+    
 }
 
 PaginationItem.defaultProps = {
+    className: null,
     button: false,
-};
+}
 
 PaginationItem.propTypes = {
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
     color: PropTypes.string,
     button: PropTypes.bool.isRequired,
     ripple: PropTypes.string,
-};
+}
+
+export default PaginationItem

@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const mtTextareaColors = {
     blueGray: 'mt-input-blue-gray-500',
@@ -21,7 +21,7 @@ const mtTextareaColors = {
     purple: 'mt-input-purple-500',
     pink: 'mt-input-pink-500',
     red: 'mt-input-red-500',
-};
+}
 
 const mtTextareaOutlineColors = {
     blueGray: 'mt-input-outline-blue-gray-500',
@@ -43,7 +43,7 @@ const mtTextareaOutlineColors = {
     purple: 'mt-input-outline-purple-500',
     pink: 'mt-input-outline-pink-500',
     red: 'mt-input-outline-red-500',
-};
+}
 
 const borderColors = {
     blueGray: 'border-blue-gray-500',
@@ -65,7 +65,7 @@ const borderColors = {
     purple: 'border-purple-500',
     pink: 'border-pink-500',
     red: 'border-red-500',
-};
+}
 
 const focusBorderColors = {
     blueGray: 'focus:border-blue-gray-500',
@@ -87,9 +87,10 @@ const focusBorderColors = {
     purple: 'focus:border-purple-500',
     pink: 'focus:border-pink-500',
     red: 'focus:border-red-500',
-};
+}
 
-export default function Textarea({
+const Textarea = ({
+    className,
     placeholder,
     color,
     size,
@@ -97,32 +98,33 @@ export default function Textarea({
     error,
     success,
     ...rest
-}) {
+}) => {
+    
     let labelBorderColor,
         mtTextareaBorderColor,
         mtTextareaOutlineColor,
         mtTextareaOutlineFocusColor,
-        textareaClasses = [];
-
-    let container = ['w-full', 'h-auto', 'relative'];
-
+        textareaClasses = []
+    
+    let container = ['w-full', 'h-auto', 'relative']
+    
     if (error) {
-        labelBorderColor = borderColors['red'];
-        mtTextareaBorderColor = mtTextareaColors['red'];
-        mtTextareaOutlineColor = mtTextareaOutlineColors['red'];
-        mtTextareaOutlineFocusColor = borderColors['red'];
+        labelBorderColor = borderColors['red']
+        mtTextareaBorderColor = mtTextareaColors['red']
+        mtTextareaOutlineColor = mtTextareaOutlineColors['red']
+        mtTextareaOutlineFocusColor = borderColors['red']
     } else if (success) {
-        labelBorderColor = borderColors['green'];
-        mtTextareaBorderColor = mtTextareaColors['green'];
-        mtTextareaOutlineColor = mtTextareaOutlineColors['green'];
-        mtTextareaOutlineFocusColor = borderColors['green'];
+        labelBorderColor = borderColors['green']
+        mtTextareaBorderColor = mtTextareaColors['green']
+        mtTextareaOutlineColor = mtTextareaOutlineColors['green']
+        mtTextareaOutlineFocusColor = borderColors['green']
     } else {
-        labelBorderColor = 'border-gray-300';
-        mtTextareaBorderColor = mtTextareaColors[color];
-        mtTextareaOutlineColor = mtTextareaOutlineColors[color];
-        mtTextareaOutlineFocusColor = borderColors[color];
+        labelBorderColor = 'border-gray-300'
+        mtTextareaBorderColor = mtTextareaColors[color]
+        mtTextareaOutlineColor = mtTextareaOutlineColors[color]
+        mtTextareaOutlineFocusColor = borderColors[color]
     }
-
+    
     let label = [
         'text-gray-400',
         'absolute',
@@ -138,8 +140,8 @@ export default function Textarea({
         `${outline && 'leading-10'}`,
         `${outline && 'transition-all'}`,
         `${outline && 'duration-300'}`,
-    ];
-
+    ]
+    
     const sharedClasses = [
         'w-full',
         'h-full',
@@ -151,27 +153,29 @@ export default function Textarea({
         'focus:outline-none',
         'focus:ring-0',
         'focus:text-gray-800',
-    ];
+    ]
+    
     const textareaSM = [
         ...sharedClasses,
         `${outline ? 'px-3' : 'px-0'}`,
         `${outline && 'pt-1.5 pb-0.5'}`,
         'text-sm',
-    ];
+    ]
+    
     const textareaRegular = [
         ...sharedClasses,
         `${outline ? 'px-3' : 'px-0'}`,
         `${outline && 'pt-2.5 pb-1.5'}`,
-    ];
-
+    ]
+    
     const textareaFilled = [
         mtTextareaBorderColor,
         'mt-input',
         'texterea',
         'bg-transparent',
         'border-none',
-    ];
-
+    ]
+    
     const textareaOutline = [
         mtTextareaOutlineColor,
         labelBorderColor,
@@ -182,24 +186,26 @@ export default function Textarea({
         'border-gray-300',
         'rounded-lg',
         'focus:border-2',
-    ];
-
+    ]
+    
     if (size === 'sm') {
-        textareaClasses.push(...textareaSM);
+        textareaClasses.push(...textareaSM)
     } else {
-        textareaClasses.push(...textareaRegular);
+        textareaClasses.push(...textareaRegular)
     }
-
+    
     outline
         ? textareaClasses.push(...textareaOutline)
-        : textareaClasses.push(...textareaFilled);
-
-    container = container.join(' ');
-    label = label.join(' ');
-    textareaClasses = textareaClasses.join(' ');
-
+        : textareaClasses.push(...textareaFilled)
+    
+    container = container.join(' ')
+    label = label.join(' ')
+    textareaClasses = textareaClasses.join(' ')
+    
     return (
-        <div className={container}>
+        
+        <div className={`${container} ${className}`}>
+            
             <textarea
                 {...rest}
                 placeholder=" "
@@ -209,6 +215,7 @@ export default function Textarea({
                     ${success && outline && 'mt-input-outline-success'}`}
                 rows="7"
             />
+            
             <label className={label}>
                 {outline ? (
                     placeholder
@@ -222,6 +229,7 @@ export default function Textarea({
                     </span>
                 )}
             </label>
+            
             {error && (
                 <span
                     className={`block absolute ${
@@ -231,6 +239,7 @@ export default function Textarea({
                     {error}
                 </span>
             )}
+            
             {success && (
                 <span
                     className={`block absolute ${
@@ -240,21 +249,28 @@ export default function Textarea({
                     {success}
                 </span>
             )}
+            
         </div>
-    );
+        
+    )
+    
 }
 
 Textarea.defaultProps = {
+    className: null,
     color: 'lightBlue',
     size: 'regular',
     outline: false,
-};
+}
 
 Textarea.propTypes = {
+    className: PropTypes.string,
     placeholder: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     size: PropTypes.string.isRequired,
     outline: PropTypes.bool.isRequired,
     error: PropTypes.string,
     success: PropTypes.string,
-};
+}
+
+export default Textarea

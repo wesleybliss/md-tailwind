@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const textColors = {
     white: 'text-gray-200',
@@ -22,7 +22,7 @@ const textColors = {
     purple: 'text-purple-700',
     pink: 'text-pink-700',
     red: 'text-red-700',
-};
+}
 
 const citeColors = {
     white: 'text-white',
@@ -45,30 +45,46 @@ const citeColors = {
     purple: 'text-purple-800',
     pink: 'text-pink-800',
     red: 'text-red-800',
-};
+}
 
-export default function Quote({ children, color, footer, cite, ...rest }) {
+const Quote = ({
+    children,
+    className,
+    color,
+    footer,
+    cite,
+    ...rest
+}) => {
+    
     return (
-        <div {...rest} className="mb-2">
-            <p
-                className={`${textColors[color]} text-base font-light leading-relaxed mt-0 mb-2`}
-            >
+        
+        <div {...rest} className={`mb-2 ${className}`}>
+            
+            <p className={`${textColors[color]} text-base font-light leading-relaxed mt-0 mb-2`}>
                 {children}
             </p>
+            
             <footer className={`block ${citeColors[color]}`}>
                 - {footer} <cite>{cite}</cite>
             </footer>
+            
         </div>
-    );
+        
+    )
+    
 }
 
 Quote.defaultProps = {
+    className: null,
     color: 'blueGray',
-};
+}
 
 Quote.propTypes = {
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
     color: PropTypes.string.isRequired,
     footer: PropTypes.string.isRequired,
     cite: PropTypes.string.isRequired,
-};
+}
+
+export default Quote

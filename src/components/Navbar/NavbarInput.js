@@ -1,9 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-export default function NavbarInput({ fontAwesome, ...rest }) {
+const NavbarInput = ({
+    className,
+    fontAwesome,
+    ...rest
+}) => {
+    
     return (
+        
         <div className="relative lg:w-60 sm:w-full flex items-center bg-white bg-opacity-20 py-1 px-3 rounded-lg">
+            
             {fontAwesome ? (
                 <i class="fas fa-search text-white text-xl"></i>
             ) : (
@@ -11,18 +18,26 @@ export default function NavbarInput({ fontAwesome, ...rest }) {
                     search
                 </span>
             )}
+            
             <input
                 {...rest}
                 className="bg-transparent border-none text-sm leading-snug text-white w-full font-normal placeholder-white placeholder-opacity-50 focus:outline-none focus:ring-0"
             />
+            
         </div>
-    );
+        
+    )
+    
 }
 
 NavbarInput.defaultProps = {
+    className: null,
     fontAwesome: false,
-};
+}
 
 NavbarInput.propTypes = {
+    className: PropTypes.string,
     fontAwesome: PropTypes.bool.isRequired,
-};
+}
+
+export default NavbarInput

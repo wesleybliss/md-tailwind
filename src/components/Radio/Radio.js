@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const colors = {
     blueGray: 'mt-radio-blue-gray-500',
@@ -21,34 +21,50 @@ const colors = {
     purple: 'mt-radio-purple-500',
     pink: 'mt-radio-pink-500',
     red: 'mt-radio-red-500',
-};
+}
 
-export default function Radio({ color, text, id, ...rest }) {
+const Radio = ({
+    className,
+    color,
+    text,
+    id,
+    ...rest
+}) => {
+    
     return (
-        <div className="flex items-center">
+        
+        <div className={`flex items-center ${className}`}>
+            
             <input
                 {...rest}
                 id={id}
                 type="radio"
                 className={`mt-radio ${colors[color]} hidden overflow-hidden`}
             />
+            
             <label
                 htmlFor={id}
-                className="flex items-center cursor-pointer text-gray-400 select-none transition-all duration-300"
-            >
+                className="flex items-center cursor-pointer text-gray-400 select-none transition-all duration-300">
                 <span className="relative w-4 h-4 inline-block mr-2 rounded-full border border-gray-500 transition-all duration-300"></span>
                 {text}
             </label>
+            
         </div>
-    );
+        
+    )
+    
 }
 
 Radio.defaultProps = {
+    className: null,
     color: 'lightBlue',
-};
+}
 
 Radio.propTypes = {
+    className: PropTypes.string,
     color: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
-};
+}
+
+export default Radio

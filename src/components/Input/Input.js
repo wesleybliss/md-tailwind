@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const mtInputColors = {
     blueGray: 'mt-input-blue-gray-500',
@@ -21,7 +21,7 @@ const mtInputColors = {
     purple: 'mt-input-purple-500',
     pink: 'mt-input-pink-500',
     red: 'mt-input-red-500',
-};
+}
 
 const mtInputOutlineColors = {
     blueGray: 'mt-input-outline-blue-gray-500',
@@ -43,7 +43,7 @@ const mtInputOutlineColors = {
     purple: 'mt-input-outline-purple-500',
     pink: 'mt-input-outline-pink-500',
     red: 'mt-input-outline-red-500',
-};
+}
 
 const borderColors = {
     blueGray: 'border-blue-gray-500',
@@ -65,9 +65,9 @@ const borderColors = {
     purple: 'border-purple-500',
     pink: 'border-pink-500',
     red: 'border-red-500',
-};
+}
 
-export default function Input({
+const Input = ({
     placeholder,
     color,
     size,
@@ -75,32 +75,33 @@ export default function Input({
     error,
     success,
     ...rest
-}) {
+}) => {
+    
     let labelBorderColor,
         mtInputBorderColor,
         mtInputOutlineColor,
         mtInputOutlineFocusColor,
-        inputClasses = [];
-
-    let container = ['w-full', 'relative'];
-
+        inputClasses = []
+    
+    let container = ['w-full', 'relative']
+    
     if (error) {
-        labelBorderColor = borderColors['red'];
-        mtInputBorderColor = mtInputColors['red'];
-        mtInputOutlineColor = mtInputOutlineColors['red'];
-        mtInputOutlineFocusColor = borderColors['red'];
+        labelBorderColor = borderColors['red']
+        mtInputBorderColor = mtInputColors['red']
+        mtInputOutlineColor = mtInputOutlineColors['red']
+        mtInputOutlineFocusColor = borderColors['red']
     } else if (success) {
-        labelBorderColor = borderColors['green'];
-        mtInputBorderColor = mtInputColors['green'];
-        mtInputOutlineColor = mtInputOutlineColors['green'];
-        mtInputOutlineFocusColor = borderColors['green'];
+        labelBorderColor = borderColors['green']
+        mtInputBorderColor = mtInputColors['green']
+        mtInputOutlineColor = mtInputOutlineColors['green']
+        mtInputOutlineFocusColor = borderColors['green']
     } else {
-        labelBorderColor = 'border-gray-300';
-        mtInputBorderColor = mtInputColors[color];
-        mtInputOutlineColor = mtInputOutlineColors[color];
-        mtInputOutlineFocusColor = borderColors[color];
+        labelBorderColor = 'border-gray-300'
+        mtInputBorderColor = mtInputColors[color]
+        mtInputOutlineColor = mtInputOutlineColors[color]
+        mtInputOutlineFocusColor = borderColors[color]
     }
-
+    
     let label = [
         'text-gray-400',
         'absolute',
@@ -116,8 +117,8 @@ export default function Input({
         `${outline && 'leading-10'}`,
         `${outline && 'transition-all'}`,
         `${outline && 'duration-300'}`,
-    ];
-
+    ]
+    
     const sharedClasses = [
         'w-full',
         'h-full',
@@ -128,32 +129,34 @@ export default function Input({
         'focus:outline-none',
         'focus:ring-0',
         'focus:text-gray-800',
-    ];
-
+    ]
+    
     const inputSM = [
         ...sharedClasses,
         `${outline ? 'px-3' : 'px-0'}`,
         `${outline && 'pt-1.5 pb-0.5'}`,
         'text-sm',
-    ];
+    ]
+    
     const inputRegular = [
         ...sharedClasses,
         `${outline ? 'px-3' : 'px-0'}`,
         `${outline && 'pt-2.5 pb-1.5'}`,
-    ];
+    ]
+    
     const inputLG = [
         ...sharedClasses,
         `${outline ? 'px-3' : 'px-0'}`,
         `${outline && 'pt-3.5 pb-2.5'}`,
-    ];
-
+    ]
+    
     const inputFilled = [
         mtInputBorderColor,
         'mt-input',
         'bg-transparent',
         'border-none',
-    ];
-
+    ]
+    
     const inputOutline = [
         mtInputOutlineColor,
         labelBorderColor,
@@ -165,29 +168,31 @@ export default function Input({
         'rounded-lg',
         'focus:border-2',
         `focus:${mtInputOutlineFocusColor}`,
-    ];
-
+    ]
+    
     if (size === 'sm') {
         container.push('h-9');
-        inputClasses.push(...inputSM);
+        inputClasses.push(...inputSM)
     } else if (size === 'lg') {
-        container.push('h-12');
-        inputClasses.push(...inputLG);
+        container.push('h-12')
+        inputClasses.push(...inputLG)
     } else {
-        container.push('h-11');
-        inputClasses.push(...inputRegular);
+        container.push('h-11')
+        inputClasses.push(...inputRegular)
     }
 
     outline
         ? inputClasses.push(...inputOutline)
-        : inputClasses.push(...inputFilled);
-
-    container = container.join(' ');
-    label = label.join(' ');
-    inputClasses = inputClasses.join(' ');
-
+        : inputClasses.push(...inputFilled)
+    
+    container = container.join(' ')
+    label = label.join(' ')
+    inputClasses = inputClasses.join(' ')
+    
     return (
+        
         <div className={container}>
+            
             <input
                 {...rest}
                 placeholder=" "
@@ -195,6 +200,7 @@ export default function Input({
                     error && 'mt-input-outline-error'
                 } ${success && 'mt-input-outline-success'}`}
             />
+            
             <label className={label}>
                 {outline ? (
                     placeholder
@@ -208,29 +214,38 @@ export default function Input({
                     </span>
                 )}
             </label>
+            
             {error && (
                 <span className="block mt-1 text-xs text-red-500">{error}</span>
             )}
+            
             {success && (
                 <span className="block mt-1 text-xs text-green-500">
                     {success}
                 </span>
             )}
+            
         </div>
-    );
+        
+    )
+    
 }
 
 Input.defaultProps = {
+    className: null,
     color: 'lightBlue',
     size: 'regular',
     outline: false,
-};
+}
 
 Input.propTypes = {
+    className: PropTypes.string,
     placeholder: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     size: PropTypes.string.isRequired,
     outline: PropTypes.bool.isRequired,
     error: PropTypes.string,
     success: PropTypes.string,
-};
+}
+
+export default Input

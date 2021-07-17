@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const colors = {
     white: 'text-white',
@@ -22,24 +22,36 @@ const colors = {
     purple: 'text-purple-500',
     pink: 'text-pink-500',
     red: 'text-red-500',
-};
+}
 
-export default function H2({ children, color, ...rest }) {
+const H2 = ({
+    children,
+    className,
+    color,
+    ...rest
+}) => {
+    
     return (
+        
         <h1
             {...rest}
-            className={`${colors[color]} text-5xl font-serif font-bold leading-normal mt-0 mb-2`}
-        >
+            className={`${colors[color]} text-5xl font-serif font-bold leading-normal mt-0 mb-2 ${className}`}>
             {children}
         </h1>
-    );
+        
+    )
+    
 }
 
 H2.defaultProps = {
+    className: null,
     color: 'gray',
-};
+}
 
 H2.propTypes = {
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
     color: PropTypes.string.isRequired,
-};
+}
+
+export default H2

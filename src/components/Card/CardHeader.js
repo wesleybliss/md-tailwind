@@ -1,5 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 const fromColors = {
     blueGray: 'from-blue-gray-500',
@@ -21,7 +22,7 @@ const fromColors = {
     purple: 'from-purple-500',
     pink: 'from-pink-500',
     red: 'from-red-500',
-};
+}
 
 const toColors = {
     blueGray: 'to-blue-gray-700',
@@ -43,7 +44,7 @@ const toColors = {
     purple: 'to-purple-700',
     pink: 'to-pink-700',
     red: 'to-red-700',
-};
+}
 
 const shadowColors = {
     blueGray: 'shadow-lg-blue-gray',
@@ -65,77 +66,98 @@ const shadowColors = {
     purple: 'shadow-lg-purple',
     pink: 'shadow-lg-pink',
     red: 'shadow-lg-red',
-};
+}
 
 const positions = {
     left: 'justify-start',
     right: 'justify-end',
     center: 'justify-center',
-};
+}
 
-export default function CardHeader({
+const CardHeader = ({
     children,
     color,
     size,
     contentPosition,
     iconOnly,
     className,
-}) {
-    let headerSize = [];
-
+}) => {
+    
+    let headerSize = []
+    
     const smallHeader = [
         iconOnly ? 'w-20' : 'w-full',
         'h-20',
         'py-4',
         iconOnly ? 'px-4' : 'px-8',
         positions[contentPosition],
-    ];
-
+    ]
+    
     const regularHeader = [
         iconOnly ? 'w-24' : 'w-full',
         'h-24',
         'py-4',
         iconOnly ? 'px-4' : 'px-8',
         positions[contentPosition],
-    ];
-
+    ]
+    
     const largeHeader = [
         iconOnly ? 'w-28' : 'w-full',
         'h-28',
         'py-4',
         iconOnly ? 'px-4' : 'px-8',
         positions[contentPosition],
-    ];
-
+    ]
+    
     if (size === 'sm') {
-        headerSize.push(...smallHeader);
+        headerSize.push(...smallHeader)
     } else if (size === 'lg') {
-        headerSize.push(...largeHeader);
+        headerSize.push(...largeHeader)
     } else {
-        headerSize.push(...regularHeader);
+        headerSize.push(...regularHeader)
     }
-
-    headerSize = headerSize.join(' ');
-
+    
+    headerSize = headerSize.join(' ')
+    
+    const classes = classnames(
+        'bg-gradient-to-tr',
+        '-mt-10',
+        'mb-4',
+        'rounded-xl',
+        'text-white',
+        'grid',
+        'items-center',
+        fromColors[color],
+        toColors[color],
+        headerSize,
+        shadowColors[color],
+        className,
+    )
+    
     return (
-        <div
-            className={`bg-gradient-to-tr ${fromColors[color]} ${toColors[color]} -mt-10 mb-4 rounded-xl text-white grid items-center ${headerSize} ${shadowColors[color]} ${className}`}
-        >
+        
+        <div className={classes}>
             {children}
         </div>
-    );
+        
+    )
+    
 }
 
 CardHeader.defaultProps = {
+    className: null,
     color: 'lightBlue',
     size: 'regular',
     contentPosition: 'center',
     iconOnly: false,
-};
+}
 
 CardHeader.propTypes = {
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
     color: PropTypes.string.isRequired,
     contentPosition: PropTypes.string.isRequired,
     iconOnly: PropTypes.bool.isRequired,
-};
+}
+
+export default CardHeader

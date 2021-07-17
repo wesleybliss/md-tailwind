@@ -1,16 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-export default function Tab({ children, className }) {
+const Tab = ({
+    children,
+    className,
+}) => {
+    
     return (
-        <div
-            className={`relative flex flex-col items-center justify-center bg-white rounded-lg shadow-md w-full p-4 my-8 ${className}`}
-        >
+        
+        <div className={`relative flex flex-col items-center justify-center bg-white rounded-lg shadow-md w-full p-4 my-8 ${className}`}>
             {children}
         </div>
-    );
+        
+    )
+    
+}
+
+Tab.defaultProps = {
+    className: null,
 }
 
 Tab.propTypes = {
     children: PropTypes.node.isRequired,
-};
+    className: PropTypes.string,
+}
+
+export default Tab

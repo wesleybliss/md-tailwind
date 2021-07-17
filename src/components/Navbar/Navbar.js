@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const colors = {
     blueGray: 'bg-blue-gray-500',
@@ -21,29 +21,41 @@ const colors = {
     purple: 'bg-purple-500',
     pink: 'bg-pink-500',
     red: 'bg-red-500',
-};
+}
 
-export default function Navbar({ children, color, navbar, className }) {
+const Navbar = ({
+    children,
+    className,
+    color,
+    navbar,
+}) => {
+    
     return (
-        <>
-            <nav
-                className={`flex flex-wrap items-center justify-between py-2.5 px-3 mb-3 ${
-                    colors[color]
-                } ${!navbar && 'rounded-lg'} ${className}`}
-            >
-                {children}
-            </nav>
-        </>
-    );
+        
+        <nav
+            className={`flex flex-wrap items-center justify-between py-2.5 px-3 mb-3 ${
+                colors[color]
+            } ${!navbar && 'rounded-lg'} ${className}`}>
+            
+            {children}
+            
+        </nav>
+        
+    )
+    
 }
 
 Navbar.defaultProps = {
+    className: null,
     color: 'lightBlue',
     navbar: false,
-};
+}
 
 Navbar.propTypes = {
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
     color: PropTypes.string.isRequired,
     navbar: PropTypes.bool,
-};
+}
+
+export default Navbar

@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const divBgColors = {
     blueGray: 'bg-blue-gray-100',
@@ -21,7 +21,7 @@ const divBgColors = {
     purple: 'bg-purple-100',
     pink: 'bg-pink-100',
     red: 'bg-red-100',
-};
+}
 
 const spanBgColors = {
     blueGray: 'bg-blue-gray-900',
@@ -43,7 +43,7 @@ const spanBgColors = {
     purple: 'bg-purple-900',
     pink: 'bg-pink-900',
     red: 'bg-red-900',
-};
+}
 
 const textColors = {
     blueGray: 'text-blue-gray-700',
@@ -65,52 +65,65 @@ const textColors = {
     purple: 'text-purple-700',
     pink: 'text-pink-700',
     red: 'text-red-700',
-};
+}
 
-export default function ClosingLabel({ children, color, className }) {
-    const [showLabel, setShowLabel] = React.useState(true);
-
+const ClosingLabel = ({
+    children,
+    className,
+    color,
+}) => {
+    
+    const [showLabel, setShowLabel] = React.useState(true)
+    
     function closeLabel(e) {
-        let delay;
-
-        const parentClassName = e.target.parentNode;
-
-        parentClassName.classList.add('opacity-0');
-
+        
+        let delay
+        const parentClassName = e.target.parentNode
+        
+        parentClassName.classList.add('opacity-0')
+        
         Array.from(parentClassName.classList).map((el) =>
             el.includes('duration') ? (delay = el.split('-')[1]) : null
-        );
-
+        )
+        
         setTimeout(
             () => setShowLabel(false),
             delay ? parseInt(delay, 10) + 100 : 250
-        );
+        )
+        
     }
-
+    
+    if (!showLabel) return null
+    
     return (
-        <>
-            {showLabel ? (
-                <div
-                    className={`max-w-max flex items-center justify-between py-1 pl-3 pr-1 rounded-full ${divBgColors[color]} last:mr-0 mr-1 transition-all duration-300 ${className}`}
-                >
-                    <span
-                        className={`text-xs font-semibold uppercase ${textColors[color]} uppercase mr-2`}
-                    >
-                        {children}
-                    </span>
-                    <span
-                        className={`${spanBgColors[color]} text-white text-sm leading-none rounded-full w-4 h-4 cursor-pointer grid place-items-center p-0`}
-                        onClick={closeLabel}
-                    >
-                        &times;
-                    </span>
-                </div>
-            ) : null}
-        </>
-    );
+        
+        <div className={`max-w-max flex items-center justify-between py-1 pl-3 pr-1 rounded-full ${divBgColors[color]} last:mr-0 mr-1 transition-all duration-300 ${className}`}>
+            
+            <span
+                className={`text-xs font-semibold uppercase ${textColors[color]} uppercase mr-2`}>
+                {children}
+            </span>
+            
+            <span
+                className={`${spanBgColors[color]} text-white text-sm leading-none rounded-full w-4 h-4 cursor-pointer grid place-items-center p-0`}
+                onClick={closeLabel}>
+                &times;
+            </span>
+            
+        </div>
+        
+    )
+    
+}
+
+ClosingLabel.defaultProps = {
+    className: null,
 }
 
 ClosingLabel.propTypes = {
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
     color: PropTypes.string.isRequired,
-};
+}
+
+export default ClosingLabel

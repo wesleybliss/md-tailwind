@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const colors = {
     white: 'text-white',
@@ -22,7 +22,7 @@ const colors = {
     purple: 'text-purple-500',
     pink: 'text-pink-500',
     red: 'text-red-500',
-};
+}
 
 const sizes = {
     xs: 'text-xs',
@@ -38,9 +38,10 @@ const sizes = {
     '7xl': 'text-7xl',
     '8xl': 'text-8xl',
     '9xl': 'text-9xl',
-};
+}
 
 const Icon = ({
+    className,
     family,
     name,
     color,
@@ -48,8 +49,8 @@ const Icon = ({
     ...rest
 }) => {
     
-    let iconUI;
-
+    let iconUI
+    
     if (family === 'material-icons') {
         iconUI = (
             <span
@@ -60,31 +61,32 @@ const Icon = ({
             >
                 {name}
             </span>
-        );
+        )
     } else if (family === 'font-awesome') {
         iconUI = (
             <i
                 {...rest}
                 className={`${name} ${colors[color]} ${sizes[size]}`}
             />
-        );
+        )
     }
-
-    return iconUI;
+    
+    return iconUI
+    
 }
 
-Icon.displayName = 'Icon'
-
 Icon.defaultProps = {
+    className: null,
     family: 'material-icons',
     size: 'base',
-};
+}
 
 Icon.propTypes = {
+    className: PropTypes.string,
     family: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     color: PropTypes.string,
     size: PropTypes.string.isRequired,
-};
+}
 
 export default Icon

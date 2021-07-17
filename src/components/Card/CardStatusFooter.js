@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const Colors = {
     blueGray: 'text-blue-gray-500',
@@ -21,33 +21,39 @@ const Colors = {
     purple: 'text-purple-500',
     pink: 'text-pink-500',
     red: 'text-red-500',
-};
+}
 
-export default function CardStatusFooter({
+const CardStatusFooter = ({
     children,
+    className,
     color,
     amount,
     date,
-    className,
-}) {
+}) => {
+    
     return (
-        <div
-            className={`text-sm text-gray-700 pt-4 flex items-center ${className}`}
-        >
+        
+        <div className={`text-sm text-gray-700 pt-4 flex items-center ${className}`}>
             {children}
             <span className={`${Colors[color]} ml-1 mr-2`}>{amount}</span>
             <span className="font-light whitespace-nowrap">{date}</span>
         </div>
-    );
+        
+    )
+    
 }
 
 CardStatusFooter.defaultProps = {
+    className: null,
     color: 'lightBlue',
 };
 
 CardStatusFooter.propTypes = {
     children: PropTypes.node,
+    className: PropTypes.string,
     color: PropTypes.string.isRequired,
     amount: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
 };
+
+export default CardStatusFooter
