@@ -3,38 +3,40 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 
-const buildEntries = root => {
-    let entries = {}
+const buildComponentList = root => {
+    let list = []
     const nodes = fs.readdirSync(root)
     nodes.forEach(it => {
         const node = path.resolve(root, it)
-        const name = path.basename(node).replace(path.extname(node), '')
-        if (it === 'index.js') return
+        if (it.endsWith('components/index.js')) return
         if (fs.statSync(node).isFile())
-            entries[name] = node
+            list.push(node)
         else if (fs.statSync(node).isDirectory())
-            entries = { ...entries, ...buildEntries(node) }
+            list = [ ...list, ...buildComponentList(node) ]
     })
-    return entries
+    return list
+}
+
+const makeEntry = file => {
+    const name = file.replace(`${root}/`, '')
+    return name.substring(0, name.length - path.extname(name).length)
 }
 
 const root = path.resolve(__dirname, 'src/components')
-const entries = buildEntries(root)
+const components = buildComponentList(root)
+const entries = components.reduce((acc, it) => ({
+    ...acc,
+    [makeEntry(it)]: it,
+}), {})
+
+// @todo also export a combined lib?
 
 module.exports = {
-    /* entry: './src/components/index.js',
-    output: {
-        filename: 'index.js',
-        path: path.resolve(__dirname, 'dist'),
-        library: 'md-tailwind',
-        libraryTarget: 'commonjs',
-    }, */
     entry: entries,
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
-        /* library: 'md-tailwind',
-        libraryTarget: 'commonjs', */
+        libraryTarget: 'umd',
     },
     externals: [nodeExternals()],
     plugins: [new CleanWebpackPlugin()],

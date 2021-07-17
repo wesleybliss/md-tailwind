@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import classnames from 'classnames'
 
-import Button from './components/Button/Button'
-import Modal from './components/Modal/Modal'
-import ModalBody from './components/Modal/ModalBody'
+import Button from '../dist/Button'
+import Modal from '../dist/Modal/Modal'
+import ModalBody from '../dist/Modal/ModalBody'
 
 import './index.css'
-
+console.log('button is', typeof Button)
 const App = () => {
     
     const [open, setOpen] = useState(false)
