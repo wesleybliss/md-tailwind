@@ -1,10 +1,36 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
-export default function ModalBody({ children }) {
-  return <div className="relative flex-auto mb-6">{children}</div>;
+const ModalBody = ({
+    children,
+    className,
+}) => {
+    
+    const classes = classnames(
+        'relative',
+        'flex-auto',
+        'mb-6',
+        className,
+    )
+    
+    return (
+        
+        <div className={classes}>
+            {children}
+        </div>
+        
+    )
+    
+}
+
+ModalBody.defaultProps = {
+    className: null,
 }
 
 ModalBody.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
+}
+
+export default ModalBody
