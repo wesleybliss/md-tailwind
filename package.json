@@ -9,7 +9,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "build:lib": "NODE_ENV=production npx webpack"
+    "build:lib": "NODE_ENV=production npx webpack --progress"
   },
   "dependencies": {
     "@babel/cli": "^7.14.5",

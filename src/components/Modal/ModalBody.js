@@ -16,7 +16,7 @@ const ModalBody = ({
     
     return (
         
-        <div className={`relative flex-auto mb-6 ${className}`}>
+        <div className={classes}>
             {children}
         </div>
         
