@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Button from './components/Button/Button'
+import Modal from './components/Modal/Modal'
+import ModalBody from './components/Modal/ModalBody'
+
+import './index.css'
+
+const App = () => {
+    
+    const [open, setOpen] = useState(false)
+    
+    return (
+        
+        <div className="w-full h-screen flex flex-col">
+            
+            <header className="w-full p-5 mb-10 bg-gray-300 text-center">
+                <p>
+                    md-tailwind / 1.0
+                </p>
+            </header>
+            
+            <div className="flex flex-col justify-center items-center">
+                <Button
+                    className="bg-black"
+                    onClick={() => setOpen(true)}>
+                    Open Dialog
+                </Button>
+                <Modal
+                    wrapperClassName=""
+                    modalClassName=""
+                    modalInnerClassName="bg-gray-900 text-gray-100"
+                    overlayClassName=""
+                    active={open}
+                    toggler={() => setOpen(false)}>
+                    <ModalBody>
+                        <h1 className="text-lg font-bold">Modal Example</h1>
+                        <p>Modal content</p>
+                    </ModalBody>
+                </Modal>
+            </div>
+            
+        </div>
+        
+    )
+    
 }
 
-export default App;
+export default App
