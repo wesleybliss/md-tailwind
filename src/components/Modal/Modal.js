@@ -33,6 +33,7 @@ const Modal = ({
     }))
     
     return (
+        
         <>
             
             <div className={classes.wrapper} onClick={toggler}>
@@ -48,6 +49,7 @@ const Modal = ({
             <div className={classes.overlay} />
             
         </>
+        
     )
     
 }
