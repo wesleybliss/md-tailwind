@@ -13,7 +13,7 @@ export const useClasses = ({
     const classes = {}
     
     classes.wrapper = classnames(
-        'mdtw-wrapper',
+        'mdtw-modal-wrapper',
         'grid',
         'place-items-center',
         'overflow-x-hidden',
@@ -47,7 +47,7 @@ export const useClasses = ({
     )
     
     classes.modalInner = classnames(
-        'mdtw-modalInner',
+        'mdtw-modal-inner',
         'flex',
         'flex-col',
         'w-full',
@@ -62,7 +62,7 @@ export const useClasses = ({
     )
     
     classes.overlay = classnames(
-        'mdtw-overlay',
+        'mdtw-modal-overlay',
         'fixed',
         'inset-0',
         'z-40',

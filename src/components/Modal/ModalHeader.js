@@ -8,20 +8,24 @@ const ModalHeader = ({
     toggler,
 }) => {
     
-    const classes = classnames('flex items-center justify-between mb-6', className)
+    const classes = classnames(
+        'mdtw-modal-header',
+        'flex items-center justify-between mb-6',
+        className
+    )
     
     return (
         
         <div className={classes}>
             
-            <h5 className="text-gray-900 text-2xl font-bold mt-0 mb-0">
+            <h5 className="mdtw-modal-header-title text-2xl font-bold mt-0 mb-0">
                 {children}
             </h5>
             
             <button
-                className="p-1 bg-transparent absolute top-2 right-4 text-gray-900 text-3xl leading-none outline-none focus:outline-none"
+                className="mdtw-modal-header-cta p-1 bg-transparent absolute top-2 right-4 text-3xl leading-none outline-none focus:outline-none"
                 onClick={toggler}>
-                <span className="text-gray-900 text-3xl block">&times;</span>
+                <span className="text-3xl block">&times;</span>
             </button>
             
         </div>
