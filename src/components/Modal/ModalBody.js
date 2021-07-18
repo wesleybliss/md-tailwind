@@ -10,7 +10,6 @@ const ModalBody = ({
     const classes = classnames(
         'relative',
         'flex-auto',
-        'mb-6',
         className,
     )
     
