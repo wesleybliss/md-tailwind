@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import classnames from 'classnames'
 
+import Alert from '../dist/Alerts/Alert'
 import Button from '../dist/Button'
 import Modal from '../dist/Modal/Modal'
 import ModalBody from '../dist/Modal/ModalBody'
 
 import './index.css'
-console.log('button is', typeof Button)
+
 const App = () => {
     
     const [open, setOpen] = useState(false)
@@ -21,6 +22,10 @@ const App = () => {
             </header>
             
             <div className="flex flex-col justify-center items-center">
+                
+                <div className="">
+                    <Alert>Testing alert.</Alert>
+                </div>
                 
                 <div className="flex">
                     <div className="flex flex-col m-5 p-5">

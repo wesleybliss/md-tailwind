@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
+import '../../index.css'
+
 const colors = {
     blueGray: 'bg-blue-gray-500',
     gray: 'bg-gray-500',
