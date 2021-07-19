@@ -64,8 +64,8 @@ const Button = forwardRef(
             filledBgHoverColors[color],
             filledBgFocusColors[color],
             filledBgActiveColors[color],
-            filledShadowColors[color],
-            filledShadowHoverColors[color],
+            // filledShadowColors[color],
+            // filledShadowHoverColors[color],
         ]
         
         const buttonOutline = [
