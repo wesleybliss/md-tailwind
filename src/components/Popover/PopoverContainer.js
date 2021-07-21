@@ -17,6 +17,8 @@ const PopoverContainer = ({
     
 }
 
+PopoverContainer.displayName = 'PopoverContainer'
+
 PopoverContainer.defaultProps = {
     className: null,
 }

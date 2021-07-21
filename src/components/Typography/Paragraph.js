@@ -43,6 +43,8 @@ const Paragraph = ({
     
 }
 
+Paragraph.displayName = 'Paragraph'
+
 Paragraph.defaultProps = {
     className: null,
     color: 'blueGray',

@@ -43,6 +43,8 @@ const CardStatusFooter = ({
     
 }
 
+CardStatusFooter.displayName = 'CardStatusFooter'
+
 CardStatusFooter.defaultProps = {
     className: null,
     color: 'lightBlue',

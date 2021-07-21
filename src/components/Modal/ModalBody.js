@@ -23,6 +23,8 @@ const ModalBody = ({
     
 }
 
+ModalBody.displayName = 'ModalBody'
+
 ModalBody.defaultProps = {
     className: null,
 }

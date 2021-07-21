@@ -65,6 +65,8 @@ const PaginationItem = ({
     
 }
 
+PaginationItem.displayName = 'PaginationItem'
+
 PaginationItem.defaultProps = {
     className: null,
     button: false,

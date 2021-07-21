@@ -26,6 +26,8 @@ const Popover = forwardRef(({
     
 })
 
+Popover.displayName = 'Popover'
+
 Popover.defaultProps = {
     className: null,
     placement: 'top',

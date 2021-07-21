@@ -18,6 +18,8 @@ const Pagination = ({
     
 }
 
+Pagination.displayName = 'Pagination'
+
 Pagination.propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,

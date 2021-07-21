@@ -54,7 +54,7 @@ const Modal = ({
     
 }
 
-// Modal.displayName = 'Modal'
+Modal.displayName = 'Modal'
 
 Modal.defaultProps = {
     makeClasses: classes => classes,

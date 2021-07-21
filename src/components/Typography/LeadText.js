@@ -43,6 +43,8 @@ const LeadText = ({
     
 }
 
+LeadText.displayName = 'LeadText'
+
 LeadText.defaultProps = {
     className: null,
     color: 'blueGray',

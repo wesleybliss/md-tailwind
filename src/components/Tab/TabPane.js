@@ -17,6 +17,8 @@ const TabPane = ({
     
 }
 
+TabPane.displayName = 'TabPane'
+
 TabPane.defaultProps = {
     className: null,
     active: false,

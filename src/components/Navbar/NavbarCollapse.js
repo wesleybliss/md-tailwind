@@ -22,6 +22,8 @@ const NavbarCollapse = ({
     
 }
 
+NavbarCollapse.displayName = 'NavbarCollapse'
+
 NavbarCollapse.defaultProps = {
     className: null,
 }

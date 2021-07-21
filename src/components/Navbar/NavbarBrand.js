@@ -41,6 +41,8 @@ const NavbarBrand = ({
     
 }
 
+NavbarBrand.displayName = 'NavbarBrand'
+
 NavbarBrand.defaultProps = {
     className: null,
     color: 'white',

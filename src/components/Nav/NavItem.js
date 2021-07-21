@@ -32,6 +32,8 @@ const NavItem = ({
     
 }
 
+NavItem.displayName = 'NavItem'
+
 NavItem.defaultProps = {
     className: null,
 }

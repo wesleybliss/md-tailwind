@@ -32,6 +32,8 @@ const NavLink = ({
     
 }
 
+NavLink.displayName = 'NavLink'
+
 NavLink.defaultProps = {
     className: null,
 }

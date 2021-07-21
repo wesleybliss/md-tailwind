@@ -74,6 +74,8 @@ const Quote = ({
     
 }
 
+Quote.displayName = 'Quote'
+
 Quote.defaultProps = {
     className: null,
     color: 'blueGray',

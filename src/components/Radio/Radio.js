@@ -55,6 +55,8 @@ const Radio = ({
     
 }
 
+Radio.displayName = 'Radio'
+
 Radio.defaultProps = {
     className: null,
     color: 'lightBlue',

@@ -45,6 +45,8 @@ const Navbar = ({
     
 }
 
+Navbar.displayName = 'Navbar'
+
 Navbar.defaultProps = {
     className: null,
     color: 'lightBlue',

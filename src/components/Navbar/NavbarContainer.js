@@ -16,6 +16,8 @@ const NavbarContainer = ({
     
 }
 
+NavbarContainer.displayName = 'NavbarContainer'
+
 NavbarContainer.defaultProps = {
     className: null,
 }

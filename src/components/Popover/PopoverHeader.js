@@ -16,6 +16,8 @@ const PopoverHeader = ({
     
 }
 
+PopoverHeader.displayName = 'PopoverHeader'
+
 PopoverHeader.defaultProps = {
     className: null,
 }

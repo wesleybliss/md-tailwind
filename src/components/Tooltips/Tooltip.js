@@ -25,6 +25,8 @@ const Tooltip = forwardRef(({
     
 })
 
+Tooltip.displayName = 'Tooltip'
+
 Tooltip.defaultProps = {
     className: null,
     placement: 'top',

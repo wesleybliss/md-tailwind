@@ -265,6 +265,8 @@ const InputIcon = ({
     
 }
 
+InputIcon.displayName = 'InputIcon'
+
 InputIcon.defaultProps = {
     className: null,
     color: 'lightBlue',

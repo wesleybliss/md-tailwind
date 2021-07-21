@@ -80,17 +80,19 @@ const Checkbox = ({
     
 }
 
+Checkbox.displayName = 'Checkbox'
+
 Checkbox.defaultProps = {
     className: null,
     color: 'lightBlue',
     text: null,
-};
+}
 
 Checkbox.propTypes = {
     className: PropTypes.string,
     color: PropTypes.string.isRequired,
     text: PropTypes.string,
     id: PropTypes.string.isRequired,
-};
+}
 
 export default Checkbox

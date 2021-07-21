@@ -43,6 +43,8 @@ const H3 = ({
     
 }
 
+H3.displayName = 'H3'
+
 H3.defaultProps = {
     className: null,
     color: 'gray',

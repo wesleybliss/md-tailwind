@@ -20,6 +20,8 @@ const Nav = ({
     
 }
 
+Nav.displayName = 'Nav'
+
 Nav.defaultProps = {
     className: null,
     leftSide: false,

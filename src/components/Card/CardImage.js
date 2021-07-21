@@ -21,6 +21,8 @@ const CardImage = ({
     
 }
 
+CardImage.displayName = 'CardImage'
+
 CardImage.defaultProps = {
     className: null,
     alt: '',

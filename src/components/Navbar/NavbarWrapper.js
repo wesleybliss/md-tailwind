@@ -16,6 +16,8 @@ const NavbarWrapper = ({
     
 }
 
+NavbarWrapper.displayName = 'NavbarWrapper'
+
 NavbarWrapper.defaultProps = {
     className: null,
 }

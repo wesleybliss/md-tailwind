@@ -116,6 +116,8 @@ const ClosingLabel = ({
     
 }
 
+ClosingLabel.displayName = 'ClosingLabel'
+
 ClosingLabel.defaultProps = {
     className: null,
 }

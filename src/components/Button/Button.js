@@ -151,13 +151,15 @@ const Button = forwardRef(
     
 )
 
+Button.displayName = 'Button'
+
 Button.defaultProps = {
     color: 'lightBlue',
     buttonType: 'filled',
     size: 'regular',
     rounded: false,
     block: false,
-};
+}
 
 Button.propTypes = {
     children: PropTypes.node.isRequired,
@@ -167,6 +169,6 @@ Button.propTypes = {
     rounded: PropTypes.bool.isRequired,
     block: PropTypes.bool.isRequired,
     ripple: PropTypes.string,
-};
+}
 
 export default Button

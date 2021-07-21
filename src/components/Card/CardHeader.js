@@ -144,6 +144,8 @@ const CardHeader = ({
     
 }
 
+CardHeader.displayName = 'CardHeader'
+
 CardHeader.defaultProps = {
     className: null,
     color: 'lightBlue',

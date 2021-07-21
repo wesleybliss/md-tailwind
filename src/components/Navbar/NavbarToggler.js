@@ -83,6 +83,7 @@ const NavbarToggler = ({
     )
     
 }
+oggler.displayName = 'NavbarToggler'
 
 NavbarToggler.defaultProps = {
     className: null,

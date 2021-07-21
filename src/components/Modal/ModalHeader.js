@@ -34,6 +34,8 @@ const ModalHeader = ({
     
 }
 
+ModalHeader.displayName = 'ModalHeader'
+
 ModalHeader.defaultProps = {
     className: null,
 }

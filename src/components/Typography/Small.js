@@ -43,6 +43,8 @@ const Small = ({
     
 }
 
+Small.displayName = 'Small'
+
 Small.defaultProps = {
     className: null,
     color: 'blueGray',

@@ -30,6 +30,8 @@ const NavbarInput = ({
     
 }
 
+NavbarInput.displayName = 'NavbarInput'
+
 NavbarInput.defaultProps = {
     className: null,
     fontAwesome: false,

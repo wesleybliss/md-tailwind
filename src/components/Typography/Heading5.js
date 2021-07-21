@@ -43,6 +43,8 @@ const H5 = ({
     
 }
 
+H5.displayName = 'H5'
+
 H5.defaultProps = {
     className: null,
     color: 'gray',

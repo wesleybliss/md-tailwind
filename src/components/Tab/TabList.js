@@ -65,6 +65,8 @@ const TabList = ({
     
 }
 
+TabList.displayName = 'TabList'
+
 TabList.defaultProps = {
     className: null,
     color: 'lightBlue',

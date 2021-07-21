@@ -71,6 +71,8 @@ const Progress = ({
     
 }
 
+Progress.displayName = 'Progress'
+
 Progress.defaultProps = {
     className: null,
     color: 'lightBlue',

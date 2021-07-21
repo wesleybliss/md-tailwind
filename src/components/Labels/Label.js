@@ -66,6 +66,8 @@ const Label = ({
     
 }
 
+Label.displayName = 'Label'
+
 Label.defaultProps = {
     className: null,
 }

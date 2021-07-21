@@ -23,6 +23,8 @@ const CardStatus = ({
     
 }
 
+CardStatus.displayName = 'CardStatus'
+
 CardStatus.defaultProps = {
     className: null,
 }

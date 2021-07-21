@@ -25,6 +25,8 @@ const ModalFooter = ({
     
 }
 
+ModalFooter.displayName = 'ModalFooter'
+
 ModalFooter.defaultProps = {
     className: null,
 }

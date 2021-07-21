@@ -43,6 +43,8 @@ const H2 = ({
     
 }
 
+H2.displayName = 'H2'
+
 H2.defaultProps = {
     className: null,
     color: 'gray',

@@ -37,6 +37,8 @@ const TabItem = ({
     
 }
 
+TabItem.displayName = 'TabItem'
+
 TabItem.defaultProps = {
     className: null,
     active: false,

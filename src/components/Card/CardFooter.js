@@ -16,6 +16,8 @@ const CardFooter = ({
     
 }
 
+CardFooter.displayName = 'CardFooter'
+
 CardFooter.defaultProps = {
     className: null,
 }

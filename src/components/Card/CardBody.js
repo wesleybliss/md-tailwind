@@ -16,6 +16,8 @@ const CardBody = ({
     
 }
 
+CardBody.displayName = 'CardBody'
+
 CardBody.defaultProps = {
     className: null,
 }

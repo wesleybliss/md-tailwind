@@ -20,6 +20,8 @@ const TabContent = ({
     
 }
 
+TabContent.displayName = 'TabContent'
+
 TabContent.defaultProps = {
     className: null,
 }

@@ -16,6 +16,8 @@ const Tab = ({
     
 }
 
+Tab.displayName = 'Tab'
+
 Tab.defaultProps = {
     className: null,
 }

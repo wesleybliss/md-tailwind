@@ -231,6 +231,8 @@ const Input = ({
     
 }
 
+Input.displayName = 'Input'
+
 Input.defaultProps = {
     className: null,
     color: 'lightBlue',

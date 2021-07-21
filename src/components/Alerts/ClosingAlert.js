@@ -88,6 +88,8 @@ const ClosingAlert = ({
     
 }
 
+ClosingAlert.displayName = 'ClosingAlert'
+
 ClosingAlert.defaultProps = {
     className: null,
     color: 'lightBlue',

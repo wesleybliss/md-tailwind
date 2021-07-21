@@ -75,6 +75,8 @@ const Icon = ({
     
 }
 
+Icon.displayName = 'Icon'
+
 Icon.defaultProps = {
     className: null,
     family: 'material-icons',

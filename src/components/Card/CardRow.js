@@ -16,6 +16,8 @@ const CardRow = ({
     
 }
 
+CardRow.displayName = 'CardRow'
+
 CardRow.defaultProps = {
     className: null,
 }

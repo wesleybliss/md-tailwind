@@ -101,4 +101,6 @@ const Select = ({
     
 }
 
+Select.displayName = 'Select'
+
 export default Select

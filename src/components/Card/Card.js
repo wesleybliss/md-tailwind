@@ -27,6 +27,8 @@ const Card = ({
     
 }
 
+Card.displayName = 'Card'
+
 Card.defaultProps = {
     className: null,
 }

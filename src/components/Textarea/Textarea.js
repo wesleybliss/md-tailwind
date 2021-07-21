@@ -256,6 +256,8 @@ const Textarea = ({
     
 }
 
+Textarea.displayName = 'Textarea'
+
 Textarea.defaultProps = {
     className: null,
     color: 'lightBlue',

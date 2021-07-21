@@ -72,6 +72,8 @@ const DropdownLink = ({
     
 }
 
+DropdownLink.displayName = 'DropdownLink'
+
 DropdownLink.defaultProps = {
     className: null,
     color: 'lightBlue',

@@ -33,6 +33,8 @@ const Alert = ({
     
 }
 
+Alert.displayName = 'Alert'
+
 Alert.defaultProps = {
     className: null,
     color: 'lightBlue',

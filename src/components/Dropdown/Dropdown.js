@@ -173,6 +173,8 @@ const Dropdown = ({
     
 }
 
+Dropdown.displayName = 'Dropdown'
+
 Dropdown.defaultProps = {
     className: null,
     color: 'lightBlue',

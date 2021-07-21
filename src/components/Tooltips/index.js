@@ -1,8 +1,8 @@
-import Tooltips from './Tooltips'
-import TooltipsContent from './TooltipsContent'
+import Tooltip from './Tooltip'
+import TooltipContent from './TooltipContent'
 
 export {
-    TooltipsContent,
-    Tooltips,
+    TooltipContent,
+    Tooltip,
 }
-export default Tooltips
+export default Tooltip

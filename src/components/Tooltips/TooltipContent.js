@@ -16,6 +16,8 @@ const TooltipContent = ({
     
 }
 
+TooltipContent.displayName = 'TooltipContent'
+
 TooltipContent.defaultProps = {
     className: null,
 }

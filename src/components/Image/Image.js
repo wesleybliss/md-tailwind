@@ -25,6 +25,8 @@ const Image = ({
     
 }
 
+Image.displayName = 'Image'
+
 Image.defaultProps = {
     className: null,
     raised: false,
