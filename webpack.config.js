@@ -3,18 +3,34 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 
+const componenentExcludes = [
+    'components/index.js',
+    'stories.jsx',
+]
+
+/**
+ * Builds a list of components so Webpack can create
+ * separate entries & transpiled files for individual import
+ * 
+ * @param {String} root Root directory to start with
+ * @returns {Array} List of entries
+ */
 const buildComponentList = root => {
+    
     let list = []
     const nodes = fs.readdirSync(root)
+    
     nodes.forEach(it => {
         const node = path.resolve(root, it)
-        if (it.endsWith('components/index.js')) return
+        if (componenentExcludes.some(ex => it.endsWith(ex))) return
         if (fs.statSync(node).isFile())
             list.push(node)
         else if (fs.statSync(node).isDirectory())
             list = [ ...list, ...buildComponentList(node) ]
     })
+    
     return list
+    
 }
 
 const makeEntry = file => {

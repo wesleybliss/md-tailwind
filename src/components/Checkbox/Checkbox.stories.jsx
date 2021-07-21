@@ -1,7 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-// import FormControlLabel from '../components/Labels/FormControlLabel'
-import Checkbox from '../components/Checkbox'
+import Checkbox from './Checkbox'
 
 export default {
     title: 'Example/Checkbox',

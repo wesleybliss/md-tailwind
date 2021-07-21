@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Button from '../components/Button/Button'
-import Modal from '../components/Modal/Modal';
-import ModalBody from '../components/Modal/ModalBody';
+import Button from '../Button/Button'
+import Modal from './Modal'
+import ModalBody from './ModalBody'
 
 export default {
     title: 'Example/Modal',
