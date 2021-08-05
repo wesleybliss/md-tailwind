@@ -12,6 +12,7 @@
     "build:lib": "NODE_ENV=production npx webpack --progress"
   },
   "dependencies": {
+      "material-ripple-effects": "^2.0.1",
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
@@ -35,7 +36,6 @@
     "@tippyjs/react": "^4.2.5",
     "autoprefixer": "9.8.6",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
-    "material-ripple-effects": "^2.0.1",
     "postcss": "^7",
     "postcss-loader": "^6.1.1",
     "postcss-preset-env": "^6.7.0",
