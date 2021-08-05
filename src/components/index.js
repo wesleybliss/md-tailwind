@@ -65,8 +65,8 @@ import TabPane from './Tab/TabPane'
 
 import Textarea from './Textarea/Textarea'
 
-import Tooltips from './Tooltips/Tooltips'
-import TooltipsContent from './Tooltips/TooltipsContent'
+import Tooltip from './Tooltips/Tooltip'
+import TooltipContent from './Tooltips/TooltipContent'
 
 import Heading1 from './Typography/Heading1'
 import Heading2 from './Typography/Heading2'
@@ -129,8 +129,8 @@ const components = {
     TabList,
     TabPane,
     Textarea,
-    Tooltips,
-    TooltipsContent,
+    Tooltip,
+    TooltipContent,
     Heading1,
     Heading2,
     Heading3,

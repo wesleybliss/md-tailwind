@@ -32,107 +32,55 @@ export default {
     },
 }
 
-const Template = (args) => (
-    <Button {...args}>
-        {
-            args.color.substring(0, 1).toUpperCase() +
-            args.color.substring(1)
-        }
-        Button
-    </Button>
-)
+let clickTimer = null
 
-export const BlueGray = Template.bind({})
-BlueGray.args = {
-    color: 'blueGray',
+const Template = (args) => {
+    
+    const [info, setInfo] = React.useState(null)
+    
+    const handleClick = color => () => {
+        setInfo(`Clicked ${color} Button`)
+        clearTimeout(clickTimer)
+        clickTimer = setTimeout(() => setInfo(null), 3000)
+    }
+    
+    return (
+        
+        <div className="flex flex-col">
+            
+            <p className="mb-6 p-6 bg-gray-300">
+                {info || 'Waiting for click...'}
+            </p>
+            
+            <div className="grid grid-cols-4 gap-4">
+                
+                {colors.map((it, i) => (
+                    
+                    <div>
+                        <Button
+                            key={`story-button-${i}`}
+                            {...args}
+                            color={it}
+                            onClick={handleClick(it)}>
+                            {
+                                it.substring(0, 1).toUpperCase() +
+                                it.substring(1)
+                            }
+                            &nbsp;Button
+                        </Button>
+                    </div>
+                    
+                ))}
+                
+            </div>
+            
+        </div>
+        
+    )
+    
 }
 
-export const Gray = Template.bind({})
-Gray.args = {
-    color: 'gray',
-}
-
-export const Brown = Template.bind({})
-Brown.args = {
-    color: 'brown',
-}
-
-export const DeepOrange = Template.bind({})
-DeepOrange.args = {
-    color: 'deepOrange',
-}
-
-export const Orange = Template.bind({})
-Orange.args = {
-    color: 'orange',
-}
-
-export const Amber = Template.bind({})
-Amber.args = {
-    color: 'amber',
-}
-
-export const Yellow = Template.bind({})
-Yellow.args = {
-    color: 'yellow',
-}
-
-export const Lime = Template.bind({})
-Lime.args = {
-    color: 'lime',
-}
-
-export const LightGreen = Template.bind({})
-LightGreen.args = {
-    color: 'lightGreen',
-}
-
-export const Green = Template.bind({})
-Green.args = {
-    color: 'green',
-}
-
-export const Teal = Template.bind({})
-Teal.args = {
-    color: 'teal',
-}
-
-export const Cyan = Template.bind({})
-Cyan.args = {
-    color: 'cyan',
-}
-
-export const LightBlue = Template.bind({})
-LightBlue.args = {
-    color: 'lightBlue',
-}
-
-export const Blue = Template.bind({})
-Blue.args = {
-    color: 'blue',
-}
-
-export const Indigo = Template.bind({})
-Indigo.args = {
-    color: 'indigo',
-}
-
-export const DeepPurple = Template.bind({})
-DeepPurple.args = {
-    color: 'deepPurple',
-}
-
-export const Purple = Template.bind({})
-Purple.args = {
-    color: 'purple',
-}
-
-export const Pink = Template.bind({})
-Pink.args = {
-    color: 'pink',
-}
-
-export const Red = Template.bind({})
-Red.args = {
-    color: 'red',
+export const Normal = Template.bind({})
+Normal.args = {
+    
 }
